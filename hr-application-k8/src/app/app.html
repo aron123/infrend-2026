@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h4>HR Nyilvántartó</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-9">
+            <ul>
+                @for(applicant of applicants; track applicant.id) {
+                <li [class.text-danger]="applicant.experience == '0-5' && applicant.salary > 700000">
+                    {{ applicant.name }} {{ applicant.role }},
+                    {{ applicant.experience }} év tapasztalattal,
+                    fizetési igény: {{ applicant.salary }} Ft
+                    <button class="btn btn-danger" (click)="deleteApplicant(applicant)">Törlés</button>
+                </li>
+                }
+            </ul>
+            <button class="btn btn-success" (click)="isFormVisible = true">Új jelentkező</button>
+        </div>
+        <div class="col-3">
+            @if(isFormVisible) {
+            <div class="mb-3">
+                <label for="name" class="form-label">Név</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newApplicant.name">
+            </div>
+            <div class="mb-3">
+                <label for="role" class="form-label">Munkakör</label>
+                <input type="text" class="form-control" id="role" name="role" [(ngModel)]="newApplicant.role">
+            </div>
+            <div class="mb-3">
+                <label for="experince" class="form-label">Tapasztalat</label>
+                <select name="experience" id="experience" class="form-select"
+                    [(ngModel)]="newApplicant.experience">
+                    <option value="0-5">0-5 év</option>
+                    <option value="5-10">5-10 év</option>
+                    <option value="10+">10+ év</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="salary" class="form-label">Fizetési igény</label>
+                <input type="number" class="form-control" id="salary" name="salary"
+                    [(ngModel)]="newApplicant.salary">
+            </div>
+            <button class="btn btn-primary" (click)="saveApplicant()">Mentés</button>
+            }
+        </div>
+    </div>
+</div>
