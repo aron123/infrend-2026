@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-12">
+        <h4>Changelog</h4>
+        <ul>
+            @for(entry of changelog(); track $index) {
+                <li>
+                    {{ entry.type }} version changed
+                    from {{ entry.oldValue }} to {{ entry.newValue }}
+                </li>
+            }
+        </ul>
+    </div>
+</div>
