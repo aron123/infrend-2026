@@ -16,7 +16,7 @@ export class StorageService {
     return localStorage.getItem(this.USERNAME_KEY);
   }
 
-  apiKey() {
-    return localStorage.getItem(this.APIKEY_KEY);
+  apiKey(): string {
+    return localStorage.getItem(this.APIKEY_KEY) || '';
   }
 }

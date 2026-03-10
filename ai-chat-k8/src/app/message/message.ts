@@ -1,5 +1,6 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { Content } from '../models';
+import { StorageService } from '../storage-service';
 
 @Component({
   selector: 'app-message',
@@ -9,4 +10,6 @@ import { Content } from '../models';
 })
 export class Message {
   content = input.required<Content>();
+
+  storageService = inject(StorageService);
 }

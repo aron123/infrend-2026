@@ -1,1 +1,17 @@
-<p>{{ content().role }} said: {{ content().parts[0].text }}</p>
+@if (content().role === 'model') {
+    <div class="row">
+        <div class="col-5 bg-light rounded mt-2 p-2">
+            <p class="fw-bold">Assistant</p>
+            <p>{{ content().parts[0].text }}</p>
+        </div>
+    </div>
+}
+
+@if(content().role === 'user') {
+    <div class="row justify-content-end">
+        <div class="col-5 bg-primary rounded mt-2 p-2 text-light">
+            <p class="fw-bold">{{ storageService.username() }}</p>
+            <p>{{ content().parts[0].text }}</p>
+        </div>
+    </div>
+}
