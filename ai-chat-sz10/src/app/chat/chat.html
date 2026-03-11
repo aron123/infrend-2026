@@ -1,3 +1,30 @@
-@for(content of history.contents; track $index) {
+<div class="fixed-top bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4>AI Chat</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="message-box">
+    @for(content of history.contents; track $index) {
     <app-message [content]="content"></app-message>
-}
+    }
+</div>
+
+<div class="fixed-bottom bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-11">
+                <input type="text" class="form-control" id="message" name="message"
+                    placeholder="Type your message ..." [(ngModel)]="newMessage"
+                    (keyup.enter)="sendMessage()">
+            </div>
+            <div class="col-1">
+                <button class="btn btn-outline-primary" (click)="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+</div>

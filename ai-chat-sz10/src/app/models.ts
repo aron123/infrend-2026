@@ -10,3 +10,11 @@ export interface Content {
 export interface Part {
     text: string;
 }
+
+export interface ChatCompletion {
+    candidates: Candidate[];
+}
+
+export interface Candidate {
+    content: Content;
+}
