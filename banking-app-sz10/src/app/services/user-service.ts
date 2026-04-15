@@ -11,4 +11,20 @@ export class UserService {
   getAll() {
     return this.http.get<UserDTO[]>('/api/user');
   }
+
+  getOne(id: number) {
+    return this.http.get<UserDTO>('/api/user/' + id);
+  }
+
+  deleteUser(id: number) {
+    return this.http.delete('/api/user/' + id);
+  }
+
+  createUser(user: UserDTO) {
+    return this.http.post<UserDTO>('/api/user', user);
+  }
+
+  updateUser(user: UserDTO) {
+    return this.http.put<UserDTO>('/api/user', user);
+  }
 }

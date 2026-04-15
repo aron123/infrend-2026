@@ -1,4 +1,3 @@
-import { Repository } from "typeorm";
 import { Controller } from "./base.controller";
 import { AppDataSource } from "../data-source";
 import { User } from "../entity/User";

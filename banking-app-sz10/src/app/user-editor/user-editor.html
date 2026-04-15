@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-8">
+        <h1>Ügyféladatok</h1>
+        <form>
+            <div class="mb-3">
+                <label for="name" class="form-label">Ügyfél neve:</label>
+                <input type="text" id="name" name="name" class="form-control"
+                    [(ngModel)]="user.name">
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Lakcím:</label>
+                <input type="text" id="address" name="address" class="form-control"
+                    [(ngModel)]="user.address">
+            </div>
+            <div class="mb-3">
+                <label for="balance" class="form-label">Egyenleg (Ft):</label>
+                <input type="number" id="balance" name="balance" class="form-control"
+                    [(ngModel)]="user.balance">
+            </div>
+            <div class="mb-3 text-end">
+                <button class="btn btn-outline-primary" (click)="saveUser()">Mentés</button>
+            </div>
+        </form>
+    </div>
+</div>
