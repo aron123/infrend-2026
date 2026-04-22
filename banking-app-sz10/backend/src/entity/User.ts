@@ -1,17 +1,24 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { UserDTO } from '../../../models';
+import { BankTransfer } from "./BankTransfer";
 
 @Entity()
 export class User implements UserDTO {
     @PrimaryGeneratedColumn()
-    id: number;
+    id!: number;
 
     @Column()
-    name: string;
+    name!: string;
 
     @Column()
-    address: string;
+    address!: string;
 
     @Column()
-    balance: number;
+    balance!: number;
+
+    @OneToMany(() => BankTransfer, transaction => transaction.sender)
+    outgoingTransactions!: BankTransfer[];
+
+    @OneToMany(() => BankTransfer, transaction => transaction.receiver)
+    incomingTransactions!: BankTransfer[];
 }
